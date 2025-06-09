@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Rafaella 💖</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+      overflow-x: hidden;
+      color: white;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 8s linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(45deg); }
+      100% { transform: translateY(110vh) rotate(45deg); }
+    }
+  </style>
+</head>
+<body class="relative text-center">
+  <audio id="musica" autoplay loop>
+    <source src="https://www.youtube.com/watch?v=MsjtoD5ZSEw" type="audio/mpeg">
+  </audio>
+
+  <div class="pt-10">
+    <h1 class="text-4xl font-bold mb-4">Juntos desde 28 de Agosto de 2024 💑</h1>
+    <p class="text-xl">Já se passaram <span id="contadorDias"></span> dias ao seu lado. ❤️</p>
+
+    <div class="mt-10 text-lg max-w-xl mx-auto px-4">
+      <p>
+        Rafaella, desde o primeiro dia, cada momento ao seu lado tem sido mágico.
+        Essa página é só um pedacinho de tudo que você representa pra mim. Te amo com todo meu coração.
+      </p>
+    </div>
+
+    <button onclick="document.getElementById('audioFofo').play()" class="mt-6 bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full shadow-xl">
+      Clique aqui 🐣
+    </button>
+    <audio id="audioFofo">
+      <source src="https://www.myinstants.com/media/sounds/pop-cat-original.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4 px-4">
+      <img src="./mnt/data/linda.png" class="rounded-xl shadow-xl">
+      <img src="./mnt/data/linda2.jpg" class="rounded-xl shadow-xl">
+      <img src="./mnt/data/linda3.jpg" class="rounded-xl shadow-xl">
+      <img src="./mnt/data/linda4.jpg" class="rounded-xl shadow-xl">
+    </div>
+  </div>
+
+  <!-- corações -->
+  <script>
+    const totalHearts = 40;
+    for (let i = 0; i < totalHearts; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      document.body.appendChild(heart);
+    }
+
+    const dataInicio = new Date("2024-08-28");
+    const hoje = new Date();
+    const diff = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
+    document.getElementById("contadorDias").innerText = diff;
+  </script>
+</body>
+</html>
